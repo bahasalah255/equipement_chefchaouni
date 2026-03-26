@@ -1,13 +1,1 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  flex-direction: column;
-}
-.sarl-image {
-  width: 600px;
-}
-.logo-image {
-  width: 90px;
-}
+@import "tailwindcss";

@@ -3,7 +3,7 @@ import Input from '../ui/Input.jsx'
 
 export default function QuoteForm({ onSubmit }) {
   return (
-    <form className="space-y-4 rounded-3xl border border-stone-200 bg-white p-6 shadow-soft" onSubmit={onSubmit}>
+    <form className="space-y-4 rounded-2xl border border-stone-200 bg-white p-4 shadow-soft sm:p-6" onSubmit={onSubmit}>
       <Input label="Nom complet" name="name" placeholder="Votre nom" required />
       <Input label="Téléphone" name="phone" placeholder="Votre téléphone" required />
       <Input label="Email" name="email" type="email" placeholder="Votre email" required />

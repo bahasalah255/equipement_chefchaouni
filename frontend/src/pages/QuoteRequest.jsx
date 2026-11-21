@@ -1,14 +1,36 @@
 import QuoteForm from '../components/quote/QuoteForm.jsx'
 import { useQuote } from '../hooks/useQuote.js'
+import { submitQuoteRequest } from '../services/api.js'
+import { useState } from 'react'
 
 export default function QuoteRequest() {
   const { items, removeProduct, clearQuote } = useQuote()
+  const [message, setMessage] = useState('')
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    const form = new FormData(event.currentTarget)
+    try {
+      await submitQuoteRequest({
+        name: form.get('name'),
+        phone: form.get('phone'),
+        email: form.get('email'),
+        message: form.get('message'),
+        products: items,
+      })
+      setMessage('Votre demande de devis a été envoyée.')
+      clearQuote()
+      event.currentTarget.reset()
+    } catch {
+      setMessage("Impossible d'envoyer la demande pour le moment.")
+    }
+  }
 
   return (
-    <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+    <section className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-orange">Demande de devis</p>
-        <h1 className="mt-3 text-3xl font-bold text-charcoal">Produits sélectionnés</h1>
+        <h1 className="mt-3 text-2xl font-bold text-charcoal sm:text-3xl">Produits sélectionnés</h1>
         <div className="mt-6 space-y-3">
           {items.length ? (
             items.map((item) => (
@@ -31,7 +53,8 @@ export default function QuoteRequest() {
           </button>
         ) : null}
       </div>
-      <QuoteForm onSubmit={(event) => event.preventDefault()} />
+      {message ? <p className="mb-4 rounded-2xl bg-orange/10 p-4 text-sm font-semibold text-charcoal">{message}</p> : null}
+      <QuoteForm onSubmit={handleSubmit} />
     </section>
   )
 }

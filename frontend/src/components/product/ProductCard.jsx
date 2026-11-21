@@ -7,7 +7,7 @@ export default function ProductCard({ product }) {
   const isAdded = hasProduct(product.id ?? product.slug)
 
   return (
-    <article className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-soft">
+    <article className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-soft sm:rounded-3xl">
       <div className="aspect-[4/3] bg-stone-100">
         {product.image ? <img src={product.image} alt={product.name} className="h-full w-full object-cover" /> : null}
       </div>

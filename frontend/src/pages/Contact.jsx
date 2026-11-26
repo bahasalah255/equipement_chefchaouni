@@ -404,12 +404,11 @@ export default function Contact() {
 
           <div className="contact-hero-tag contact-reveal d1">Contactez-nous</div>
           <h1 id="contact-title" className="contact-hero-title contact-reveal d2">
-            Parlons de votre<br />
+            <br />
             <em>projet.</em>
           </h1>
           <p className="contact-hero-sub contact-reveal d3">
-            Notre équipe est disponible pour répondre à toutes vos questions et vous accompagner
-            dans vos besoins en équipements professionnels.
+            Si vous avez une question ou une demande, n'hésitez pas à nous contacter.
           </p>
         </div>
       </section>

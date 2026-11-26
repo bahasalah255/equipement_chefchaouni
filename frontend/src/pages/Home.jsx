@@ -10,6 +10,7 @@ import imgToptul from '../assets/marques/toptul.jfif'
 import imgWiseup from '../assets/marques/wiseup.png'
 import imgMarque1 from '../assets/marques/image.png'
 import imgMarque2 from '../assets/marques/index.png'
+import imgBosch from '../assets/marques/bosh.png'
 
 const galleryModules = import.meta.glob('../assets/images/*.jpeg', {
   eager: true,
@@ -32,8 +33,9 @@ const BRANDS = [
   { name: 'Toptul', category: 'Outillage', logo: imgToptul },
   { name: 'Nobel', category: 'Soudure', logo: imgNobel },
   { name: 'Wiseup', category: 'Quincaillerie', logo: imgWiseup },
-  { name: 'Marque', category: 'Équipement', logo: imgMarque1 },
-  { name: 'Marque Pro', category: 'Équipement', logo: imgMarque2 },
+  { name: 'CAT', category: 'Équipement', logo: imgMarque1 },
+  { name: 'INDEX', category: 'Équipement', logo: imgMarque2 },
+  { name: 'Bosch', category: 'Outillage', logo: imgBosch },
 ]
 
 export default function Home() {
@@ -239,74 +241,102 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-16 md:py-28">
         <HomeSectionTitle align="center" eyebrow="Nos partenaires" title="Des marques professionnelles" subtitle="Nous sélectionnons des références reconnues pour leur fiabilité, leur performance et leur durabilité." />
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
+        <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:gap-7">
           {BRANDS.map((brand) => (
-            <article key={brand.name} className="flex min-h-32 flex-col items-center justify-center gap-3 rounded-sm border border-stone-200 bg-white p-4 text-center transition hover:-translate-y-1 hover:border-orange-400 hover:shadow-xl">
-              <div className="flex h-16 w-full items-center justify-center">
+            <article key={brand.name} className="flex min-h-44 flex-col items-center justify-center gap-4 rounded-sm border border-stone-200 bg-white p-6 text-center transition duration-300 hover:-translate-y-1.5 hover:border-orange-400 hover:shadow-xl md:min-h-56">
+              <div className="flex h-24 w-full items-center justify-center md:h-32">
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="max-h-16 max-w-full object-contain"
+                  className="max-h-24 max-w-[90%] object-contain md:max-h-32"
                   loading="lazy"
                 />
               </div>
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#0F2438]">{brand.name}</p>
+              <p className="text-base font-extrabold uppercase tracking-[0.08em] text-[#0F2438] sm:text-lg md:text-xl">{brand.name}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-[#071526]">
-        <div className="absolute left-0 top-0 hidden h-full w-1/2 bg-[#F7F5F2] lg:block" />
-        <div className="relative mx-auto grid max-w-7xl lg:min-h-[620px] lg:grid-cols-[1.02fr_0.98fr]">
-          <div className="flex items-center bg-[#F7F5F2] px-6 py-14 sm:px-10 md:px-16 lg:py-16">
-            <div className="w-full">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-500">Demande rapide</p>
-              <h2 className="mt-4 max-w-xl text-4xl font-extrabold leading-[0.95] text-[#0F2438] md:text-6xl">
-                Parlons de votre projet.
-              </h2>
-              <p className="mt-5 max-w-lg text-base leading-7 text-stone-600">
-                Décrivez votre besoin et notre équipe vous répondra rapidement avec une proposition adaptée.
-              </p>
-              {quoteStatus ? <p className="mt-5 border-l-4 border-orange-500 bg-white px-4 py-3 text-sm font-bold text-[#0F2438]">{quoteStatus}</p> : null}
-              <form onSubmit={handleQuote} className="mt-7 grid gap-x-5 gap-y-4 sm:grid-cols-2">
-                <label className="block">
-                  <span className="mb-2 block text-xs font-bold uppercase tracking-wide text-stone-600">Nom complet</span>
-                  <input name="name" required className="h-12 w-full border-0 border-b-2 border-stone-300 bg-transparent outline-none transition focus:border-orange-500" />
-                </label>
-                <label className="block">
-                  <span className="mb-2 block text-xs font-bold uppercase tracking-wide text-stone-600">Téléphone</span>
-                  <input name="phone" required className="h-12 w-full border-0 border-b-2 border-stone-300 bg-transparent outline-none transition focus:border-orange-500" />
-                </label>
-                <label className="block sm:col-span-2">
-                  <span className="mb-2 block text-xs font-bold uppercase tracking-wide text-stone-600">Email professionnel</span>
-                  <input name="email" required type="email" className="h-12 w-full border-0 border-b-2 border-stone-300 bg-transparent outline-none transition focus:border-orange-500" />
-                </label>
-                <label className="block sm:col-span-2">
-                  <span className="mb-2 block text-xs font-bold uppercase tracking-wide text-stone-600">Votre besoin</span>
-                  <textarea name="message" rows="3" className="w-full resize-none border-0 border-b-2 border-stone-300 bg-transparent py-3 outline-none transition focus:border-orange-500" />
-                </label>
-                <button type="submit" className="mt-2 w-fit bg-orange-500 px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-orange-600">
-                  Envoyer la demande
-                </button>
-              </form>
-            </div>
-          </div>
+      <section className="bg-[#071526] py-12 sm:py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-16">
+          <div className="relative overflow-hidden rounded-sm bg-white shadow-[0_24px_70px_rgba(7,21,38,.28)]">
+            <div className="grid lg:grid-cols-[1.08fr_.92fr]">
+              <div className="px-5 py-10 sm:px-8 md:px-12 md:py-14 lg:px-14">
+                <div className="flex items-center gap-3">
+                  <span className="h-0.5 w-10 bg-orange-500" />
+                  <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-500">Formulaire devis</p>
+                </div>
+                <h2 className="mt-5 max-w-xl text-4xl font-extrabold leading-[0.92] tracking-tight text-[#0F2438] sm:text-5xl md:text-6xl">
+                  Demande de devis.
+                </h2>
+                <p className="mt-5 max-w-xl text-sm leading-7 text-stone-600 sm:text-base">
+                  Décrivez votre besoin. Notre équipe vous répond rapidement avec une proposition adaptée.
+                </p>
 
-          <div className="relative min-h-[360px] overflow-hidden md:min-h-[520px] lg:min-h-0">
-            {GALLERY_IMAGES[1] ? <img src={GALLERY_IMAGES[1]} alt="Contact Equipement Chefchaouni" className="absolute inset-0 h-full w-full object-cover" /> : null}
-            <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(7,21,38,.94)_0%,rgba(7,21,38,.72)_55%,rgba(7,21,38,.28)_100%)]" />
-            <div className="absolute bottom-0 left-0 w-full p-6 text-white sm:p-10 md:p-12">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-400">Contact direct</p>
-              <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">À Casablanca,<br />nous sommes proches.</h3>
-              <div className="mt-7 grid gap-3 text-sm text-slate-200">
-                <p><span className="mr-3 text-orange-400">●</span>28, Rue De Buzancy, 20300 Casablanca</p>
-                <p><span className="mr-3 text-orange-400">●</span>0522 247 420</p>
-                <p><span className="mr-3 text-orange-400">●</span>contact@equipementchefchaouni.ma</p>
+                {quoteStatus ? (
+                  <p className="mt-5 border-l-4 border-orange-500 bg-orange-50 px-4 py-3 text-sm font-bold text-[#0F2438]" role="status">
+                    {quoteStatus}
+                  </p>
+                ) : null}
+
+                <form onSubmit={handleQuote} className="mt-8 grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#0F2438]">Nom complet *</span>
+                    <input name="name" required placeholder="Votre nom" className="h-12 w-full rounded-sm border border-stone-300 bg-white px-4 text-sm outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10" />
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#0F2438]">Téléphone *</span>
+                    <input name="phone" required placeholder="Votre numéro" className="h-12 w-full rounded-sm border border-stone-300 bg-white px-4 text-sm outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10" />
+                  </label>
+                  <label className="block sm:col-span-2">
+                    <span className="mb-2 block text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#0F2438]">Email professionnel *</span>
+                    <input name="email" required type="email" placeholder="nom@entreprise.ma" className="h-12 w-full rounded-sm border border-stone-300 bg-white px-4 text-sm outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10" />
+                  </label>
+                  <label className="block sm:col-span-2">
+                    <span className="mb-2 block text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#0F2438]">Votre besoin</span>
+                    <textarea name="message" rows="4" placeholder="Produits recherchés, quantité, délai..." className="w-full resize-none rounded-sm border border-stone-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10" />
+                  </label>
+                  <button type="submit" className="mt-1 inline-flex h-12 w-full items-center justify-center rounded-sm bg-orange-500 px-6 text-sm font-extrabold uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-orange-600 sm:w-fit">
+                    Envoyer ma demande →
+                  </button>
+                </form>
               </div>
-              <Link to="/contact" className="mt-7 inline-flex border-b-2 border-orange-500 pb-2 text-sm font-bold uppercase tracking-wide text-white">
-                Nous contacter →
-              </Link>
+
+              <div className="relative min-h-[430px] overflow-hidden sm:min-h-[500px] lg:min-h-0">
+                {GALLERY_IMAGES[1] ? (
+                  <img src={GALLERY_IMAGES[1]} alt="Equipement Chefchaouni" className="absolute inset-0 h-full w-full object-cover" />
+                ) : null}
+                <div className="absolute inset-0 bg-[linear-gradient(150deg,rgba(7,21,38,.35)_0%,rgba(7,21,38,.92)_100%)]" />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-10 md:p-12">
+                  <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-400">Contact direct</p>
+                  <h3 className="mt-4 text-3xl font-extrabold leading-[1.05] md:text-4xl">
+                    À Casablanca,<br />nous sommes proches.
+                  </h3>
+                  <div className="mt-7 space-y-3 text-sm text-slate-200">
+                    <a href="https://maps.google.com/?q=Casablanca+Maroc" target="_blank" rel="noreferrer" className="flex gap-3 transition hover:text-orange-300">
+                      <span className="text-orange-400">◆</span>
+                      JF58+933, Casablanca 20450, Maroc
+                    </a>
+                    <a href="tel:+212522247420" className="flex gap-3 transition hover:text-orange-300">
+                      <span className="text-orange-400">☎</span>
+                      0522 247 420
+                    </a>
+                    <a href="mailto:contact@equipementchefchaouni.ma" className="flex gap-3 transition hover:text-orange-300">
+                      <span className="text-orange-400">✉</span>
+                      contact@equipementchefchaouni.ma
+                    </a>
+                  </div>
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <a href="https://wa.me/212522247420" target="_blank" rel="noreferrer" className="inline-flex h-11 items-center rounded-sm bg-orange-500 px-5 text-xs font-extrabold uppercase tracking-[0.08em] text-white transition hover:bg-orange-600">
+                      WhatsApp
+                    </a>
+                    <Link to="/contact" className="inline-flex h-11 items-center rounded-sm border border-white/40 px-5 text-xs font-extrabold uppercase tracking-[0.08em] text-white transition hover:border-orange-400 hover:text-orange-300">
+                      Voir le contact
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

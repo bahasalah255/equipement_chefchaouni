@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import QuoteButton from '../quote/QuoteButton.jsx'
 import logo from '../../assets/logo.png'
 
 const NAV_LINKS = [
   { to: '/', label: 'Accueil' },
   { to: '/a-propos', label: 'À propos' },
   { to: '/produits', label: 'Produits' },
-  { to: '/realisations', label: 'Réalisations' },
   { to: '/contact', label: 'Contact' },
 ]
 

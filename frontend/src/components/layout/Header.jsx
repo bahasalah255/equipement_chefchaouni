@@ -214,7 +214,7 @@ export default function Header() {
           <div className="hdr-topbar-inner">
             <span className="hdr-topbar-item">
               <span className="hdr-topbar-dot">◆</span>
-              28, Rue De Buzancy, 20300 Casablanca
+             JF58+933, Casablanca 20450, Maroc
             </span>
             <span className="hdr-topbar-dot">◆</span>
             <span className="hdr-topbar-item">

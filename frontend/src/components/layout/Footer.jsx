@@ -110,11 +110,11 @@ export default function Footer() {
             <ul className="mt-5 space-y-4 text-sm text-slate-400">
               <li className="flex items-start gap-3">
                 <span className="mt-0.5 text-orange-500">◆</span>
-                <span>28, Rue De Buzancy,<br />20300 Casablanca, Maroc</span>
+                <span>JF58+933, Casablanca 20450,<br />20300 Casablanca, Maroc</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-orange-500">☎</span>
-                <a href="tel:+212522247420" className="transition hover:text-orange-400">0522 247 420</a>
+                <a href="tel:+212661796873" className="transition hover:text-orange-400">0661796873</a>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-orange-500">✉</span>

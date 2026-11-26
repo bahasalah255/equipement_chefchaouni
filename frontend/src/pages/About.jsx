@@ -7,9 +7,9 @@ import shop3 from '../assets/images/WhatsApp Image 2026-11-21 at 19.17.43.jpeg'
 
 /* ─── Data ───────────────────────────────────────────────────── */
 const STATS = [
-  { value: 10, suffix: '+', label: 'Années d\'expérience' },
-  { value: 500, suffix: '+', label: 'Références produits' },
-  { value: 1000, suffix: '+', label: 'Clients satisfaits' },
+  { value: 15, suffix: '+', label: 'Années d\'expérience' },
+  { value: 1500, suffix: '+', label: 'Références produits' },
+  { value: 5000, suffix: '+', label: 'Clients satisfaits' },
   { value: 5, suffix: '', label: 'Domaines d\'activité' },
 ]
 
@@ -18,31 +18,31 @@ const ACTIVITIES = [
     number: '01',
     title: 'Outillage professionnel',
     description: 'Outils à main, électroportatifs et équipements de travail de haute qualité.',
-    icon: '🔧',
+    
   },
   {
     number: '02',
     title: 'Quincaillerie',
     description: 'Accessoires, fixations, pièces et solutions d\'aménagement pour tous vos projets.',
-    icon: '⚙️',
+    
   },
   {
     number: '03',
     title: 'Matériel électrique',
     description: 'Équipements et fournitures pour vos installations électriques.',
-    icon: '⚡',
+   
   },
   {
     number: '04',
     title: 'Sanitaire & plomberie',
     description: 'Appareils sanitaires, robinetterie et accessoires de qualité.',
-    icon: '🚿',
+ 
   },
   {
     number: '05',
     title: 'Peinture',
     description: 'Produits et fournitures pour peinture et finition professionnelle.',
-    icon: '🎨',
+
   },
 ]
 
@@ -917,10 +917,7 @@ export default function About() {
           <div className="about-hero-inner">
             {/* Left */}
             <div>
-              <div className="about-hero-badge">
-                <span aria-hidden="true" />
-                Notre entreprise · Casablanca, Maroc
-              </div>
+              
               <h1 id="about-title" className="about-hero-title">
                 Votre partenaire en<br />
                 <em>équipement professionnel.</em>
@@ -928,7 +925,7 @@ export default function About() {
               <p className="about-hero-sub">
                 Outillage, quincaillerie et fournitures techniques — nous
                 accompagnons professionnels, artisans, entreprises du bâtiment
-                et particuliers depuis plus de 10 ans.
+                et particuliers depuis plus de 15 ans.
               </p>
               <div className="about-hero-actions">
                 <Link to="/produits" className="about-btn-primary">
@@ -1042,7 +1039,7 @@ export default function About() {
                   className={`about-activity-card about-reveal delay-${i + 1}`}
                 >
                   <span className="about-activity-num">{activity.number}</span>
-                  <span className="about-activity-icon" aria-hidden="true">{activity.icon}</span>
+                 
                   <h3 className="about-activity-title">{activity.title}</h3>
                   <p className="about-activity-desc">{activity.description}</p>
                 </article>
@@ -1096,7 +1093,7 @@ export default function About() {
             <div className="about-values-grid">
               {VALUES.map((value, i) => (
                 <article key={value.title} className={`about-value-card about-reveal delay-${i + 1}`}>
-                  <div className="about-value-icon" aria-hidden="true">◈</div>
+                  
                   <h3 className="about-value-title">{value.title}</h3>
                   <p className="about-value-desc">{value.description}</p>
                 </article>

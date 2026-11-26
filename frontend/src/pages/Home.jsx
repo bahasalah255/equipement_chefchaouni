@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom'
 import AnimatedCounter from '../components/layout/AnimatedCounter.jsx'
 import HomeSectionTitle from '../components/layout/HomeSectionTitle.jsx'
 import { submitQuoteRequest } from '../services/api.js'
+import imgKingTony from '../assets/marques/kingtony.png'
+import imgNobel from '../assets/marques/nobel.jpg'
+import imgTolsen from '../assets/marques/tolsen.png'
+import imgToptul from '../assets/marques/toptul.jfif'
+import imgWiseup from '../assets/marques/wiseup.png'
+import imgMarque1 from '../assets/marques/image.png'
+import imgMarque2 from '../assets/marques/index.png'
 
 const galleryModules = import.meta.glob('../assets/images/*.jpeg', {
   eager: true,
@@ -20,10 +27,13 @@ const CATEGORIES = [
 ]
 
 const BRANDS = [
-  { name: 'Bahco', category: 'Outillage' },
-  { name: 'Stanley', category: 'Outillage' },
-  { name: 'Magmaweld', category: 'Soudure' },
-  { name: 'Fixman', category: 'Quincaillerie' },
+  { name: 'King Tony', category: 'Outillage', logo: imgKingTony },
+  { name: 'Tolsen', category: 'Outillage', logo: imgTolsen },
+  { name: 'Toptul', category: 'Outillage', logo: imgToptul },
+  { name: 'Nobel', category: 'Soudure', logo: imgNobel },
+  { name: 'Wiseup', category: 'Quincaillerie', logo: imgWiseup },
+  { name: 'Marque', category: 'Équipement', logo: imgMarque1 },
+  { name: 'Marque Pro', category: 'Équipement', logo: imgMarque2 },
 ]
 
 export default function Home() {
@@ -229,12 +239,18 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-16 md:py-28">
         <HomeSectionTitle align="center" eyebrow="Nos partenaires" title="Des marques professionnelles" subtitle="Nous sélectionnons des références reconnues pour leur fiabilité, leur performance et leur durabilité." />
-        <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
           {BRANDS.map((brand) => (
-            <article key={brand.name} className="flex min-h-40 flex-col items-center justify-center rounded-sm border border-stone-200 bg-white p-5 text-center transition hover:-translate-y-1 hover:border-orange-400 hover:shadow-xl">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-stone-200 text-2xl font-black text-[#0F2438]">{brand.name.slice(0, 2).toUpperCase()}</div>
-              <h3 className="mt-4 font-bold text-[#0F2438]">{brand.name}</h3>
-              <p className="mt-1 text-xs uppercase tracking-wide text-stone-500">{brand.category}</p>
+            <article key={brand.name} className="flex min-h-32 flex-col items-center justify-center gap-3 rounded-sm border border-stone-200 bg-white p-4 text-center transition hover:-translate-y-1 hover:border-orange-400 hover:shadow-xl">
+              <div className="flex h-16 w-full items-center justify-center">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-h-16 max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#0F2438]">{brand.name}</p>
             </article>
           ))}
         </div>
